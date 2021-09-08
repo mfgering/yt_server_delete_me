@@ -117,9 +117,13 @@ def do_proc(cmd):
 	except Exception as exc:
 		err_str = "Exception: "+str(exc)
 	if len(out_str) > 0:
-		flash(f"Output: {out_str}")
+		flash("Output:")
+		for line in out_str.splitlines():
+			flash(f"\t{line}")
 	if len(err_str) > 0:
-		flash(f"Error: {err_str}")
+		flash("Error:")
+		for line in err_str.splitlines():
+			flash(f"\t{line}")
 	return (out_str, err_str)
 
 def restart_server():
