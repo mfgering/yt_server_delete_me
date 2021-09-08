@@ -8,18 +8,6 @@ import db_stg
 import youtube_dl.YoutubeDL
 import yt_dlp.YoutubeDL
 
-def patch_path(subdir):
-	from pathlib import Path
-
-	p1 = sys.path
-	p2 = Path(p1[0]) / subdir
-
-	p3 = str(p2)
-	sys.path.insert(1, p3)
-
-#patch_path('yt_dlp_downloader')
-#patch_path('youtube_dl')
-
 class Downloader(object):
 	Running = []
 
