@@ -39,3 +39,7 @@ td, th {
   display: inline-block;
   padding: 15px;
 }
+
+#downloader {
+  list-style: none;
+}
