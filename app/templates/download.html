@@ -9,7 +9,10 @@
         <ul class="errors">{% for error in field.errors %}<li>{{ error|e }}</li>{% endfor %}</ul>
     {% else %}
         {{ field(**kwargs) }}
-    {% endif %}
+        {% if field.description %}
+            <p class='field-description'>{{ field.description }}</p>
+        {% endif %}
+      {% endif %}
     </div>
 {% endmacro %}
 

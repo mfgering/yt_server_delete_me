@@ -18,7 +18,7 @@ class DownloadForm(FlaskForm):
 	x_audio = BooleanField("Audio only")
 	use_proxy = BooleanField("Use proxy")
 	max_dl = IntegerField("Max concurrent downloads", validators=[NumberRange(min=1, message="Must be at least 1")])
-	cookies_file = StringField('Cookies.txt')
+	cookies_file = StringField('Cookies.txt', description='Local to server, e.g. /media/cookies/<filename>')
 	submit = SubmitField('Submit')
 
 	@staticmethod

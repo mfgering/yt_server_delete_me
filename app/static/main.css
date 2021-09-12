@@ -43,3 +43,7 @@ td, th {
 #downloader {
   list-style: none;
 }
+
+.field-description {
+  font-style: italic;
+}
