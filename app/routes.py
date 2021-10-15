@@ -8,7 +8,7 @@ import jinja2.filters
 import youtube_dl
 import yt_dlp
 from wtforms import IntegerField, StringField, PasswordField, BooleanField, SubmitField
-from flask import render_template, flash, redirect, request, session
+from flask import render_template, flash, redirect, request, send_file, session
 import config, downloader
 from app import app
 from app.forms import LoginForm, DownloadForm, SettingsForm, MaintDownloadedForm
@@ -181,6 +181,13 @@ def get_log_stg(rowid):
 		log_str = 'Nothing logged'
 	context = {'rowid': rowid, 'log': log_str}
 	return render_template("log.html", title="Log", context=context)
+
+@app.route('/get-db', methods=['GET'])
+def get_db():
+	try:
+		return send_file('yt_server.db', attachment_filename='yt_server.db')
+	except Exception as e:
+		return str(e)
 
 @app.route('/maint/downloaded', methods=['GET', 'POST'])
 def maint_downloaded():
