@@ -22,7 +22,10 @@ class Downloader(object):
 		ytdl_opts['restrictfilenames'] = Config.instance().RESTRICT_FILENAMES
 		ytdl_opts['cachedir'] = False
 		ytdl_opts['playlist'] = False
-		#ytdl_opts['verbose'] = True
+		ytdl_opts['usenetrc'] = True
+		ytdl_opts['netrc_location'] = "yt_netrc.txt"
+		if False:
+			ytdl_opts['verbose'] = True
 		if form.x_audio.data:
 			ytdl_opts['postprocessors'] = [{
 				'key': 'FFmpegExtractAudio',
