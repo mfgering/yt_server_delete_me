@@ -47,3 +47,15 @@ td, th {
 .field-description {
   font-style: italic;
 }
+
+div.dl-done table tbody tr td.url {
+  max-width: 200px;
+}
+
+div.dl-done table tbody tr td.title {
+  max-width: 300px;
+}
+
+div.dl-done table tbody tr td.filename {
+  max-width: 300px;
+}

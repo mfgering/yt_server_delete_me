@@ -20,7 +20,7 @@
           {% for j in dl_items %}
             <tr rowid="{{ j['rowid'] }}">
             {% for extra in cols %}
-              <td>{{ j[extra]|safe }}</td>
+              <td class="{{ extra }}">{{ j[extra]|safe }}</td>
             {% endfor %}
           </tr>
         {% endfor %}
