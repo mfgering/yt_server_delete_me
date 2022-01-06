@@ -11,9 +11,9 @@ class Config(object):
 	DEFAULT_DOWNLOAD_NAME_PATTERN = '%(title)s.%(ext)s'
 	FFMPEG_LOCATION = None
 	RESTRICT_FILENAMES = False
-	MAX_DONE = 50
-	DOWNLOADER = "youtube_dl"
-	PROXY_URL = "socks5://192.168.1.13:1080"
+	MAX_DONE = 2000
+	DOWNLOADER = "yt_dlp"
+	PROXY_URL = "https://192.168.1.60:8888"
 
 	def __init__(self):
 		raise RuntimeError('Call instance() instead')
