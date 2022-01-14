@@ -59,3 +59,7 @@ div.dl-done table tbody tr td.title {
 div.dl-done table tbody tr td.filename {
   max-width: 300px;
 }
+
+.url {
+  word-wrap: break-word;
+}
