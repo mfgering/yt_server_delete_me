@@ -1,16 +1,19 @@
 FROM docker.io/python:3.7
 
-RUN mkdir -p /yt-server
+RUN mkdir -p /yt-server /yt-downloaders
+
+WORKDIR /yt-downloaders
+
+ADD youtube_dl_downloader youtube_dl_downloader
+ADD yt_dlp_downloader yt_dlp_downloader
 
 WORKDIR /yt-server
 
-COPY requirements.txt .
+ADD yt_server .
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-ENV GUNICORN_CMD_ARGS="--bind=0.0.0.0 --chdir=./src/"
-#COPY . .
 
 EXPOSE 8220
 
-CMD [ "gunicorn", "-b", "0.0.0.0:8220" "app:app" ]
+CMD [ "gunicorn", "-b", "0.0.0.0:8220", "--chdir", "/yt_server" "app:app" ]
