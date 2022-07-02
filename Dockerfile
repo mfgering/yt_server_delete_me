@@ -6,8 +6,9 @@ WORKDIR /yt-server
 
 ADD . .
 
-RUN pip install --no-cache-dir -r requirements.txt \
-    git config --global pull.rebase true
+RUN pip install --no-cache-dir -r requirements.txt &&\
+    git config --global pull.rebase true &&\
+    git remote set-url origin https://github.com/mfgering/yt_server.git
 
 EXPOSE 8220
 
