@@ -2,7 +2,7 @@ import os.path
 from pathlib import Path
 from flask_wtf import FlaskForm
 from wtforms import FormField, FieldList, IntegerField, StringField, PasswordField, BooleanField, SubmitField
-from wtforms.fields.core import RadioField
+from wtforms.fields import RadioField
 from wtforms.validators import DataRequired, NumberRange, URL, ValidationError
 
 class LoginForm(FlaskForm):
