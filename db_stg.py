@@ -3,7 +3,7 @@ from os import stat_result
 import sqlite3
 from datetime import datetime
 from time import strftime
-
+import config
 
 class Stg(object):
 
@@ -13,7 +13,7 @@ class Stg(object):
 
 	def get_connection(self):
 		if self.conn is None:
-			self.conn = sqlite3.connect('yt_server.db')
+			self.conn = sqlite3.connect(config.Config.instance().DB_LOCATION)
 			self.init_tables()
 		return self.conn
 

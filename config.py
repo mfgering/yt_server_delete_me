@@ -1,6 +1,13 @@
 import os
 import local_settings
 
+settings = local_settings
+try:
+	import saved_local_settings
+	settings = saved_local_settings
+except ImportError:
+	pass
+
 class Config(object):
 	_instance = None
 
@@ -11,7 +18,7 @@ class Config(object):
 	DEFAULT_DOWNLOAD_NAME_PATTERN = '%(title)s.%(ext)s'
 	FFMPEG_LOCATION = None
 	RESTRICT_FILENAMES = False
-	MAX_DONE = 2000
+	MAX_DONE = 3000
 	DOWNLOADER = "yt_dlp"
 	PROXY_URL = "https://192.168.1.60:8888"
 
@@ -29,6 +36,6 @@ class Config(object):
 				setattr(cls._instance, member, getattr(cls, member))
 		return cls._instance
 
-_local_members = [attr for attr in dir(local_settings) if not callable(getattr(local_settings, attr)) and not attr.startswith("__")]
+_local_members = [attr for attr in dir(settings) if not callable(getattr(settings, attr)) and not attr.startswith("__")]
 for local_member in _local_members:
-	setattr(Config, local_member, getattr(local_settings, local_member))
+	setattr(Config, local_member, getattr(settings, local_member))
