@@ -2,14 +2,16 @@ version: '3'
 services:
   yt-server:
     image: ytserver
-    # environment:
-    #   - SYMFONY__ENV__DOMAIN_NAME="http://localhost:8083"
-    #   - SYMFONY__ENV__SERVER_NAME="Your wallabag instance"
+    build:
+      context: .
     ports:
       - "8220:8220"
     volumes:
-      - ./test/data:/data:rw
-      - ./test/yt:/ytdl/yt:rw
-      - ./test/x:/ytdl/x:rw
+      - ytserver-data:/data:rw
+      - ytserver-yt:/ytdl/yt:rw
+      - ytserver-x:/ytdl/x:rw
 
-#      - /opt/wallabag/images:/var/www/wallabag/web/assets/images
+volumes:
+  ytserver-data:
+  ytserver-yt:
+  ytserver-x:

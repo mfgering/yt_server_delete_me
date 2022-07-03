@@ -1,5 +1,6 @@
 **/__pycache__
 env
+test/
 local_settings.py
 #youtube_dl/**
 
