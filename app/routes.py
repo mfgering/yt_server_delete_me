@@ -185,7 +185,7 @@ def get_log_stg(rowid):
 @app.route('/get-db', methods=['GET'])
 def get_db():
 	try:
-		return send_file('../yt_server.db', attachment_filename='yt_server.db')
+		return send_file(config.Config.instance().DB_LOCATION, attachment_filename='yt_server.db')
 	except Exception as e:
 		return str(e)
 
