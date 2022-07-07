@@ -4,7 +4,7 @@ WORKDIR /yt-server
 
 ADD . .
 
-RUN apt update && apt install -y ffmpeg &&\
+RUN apt-get update && apt-get install -y ffmpeg pip &&\
     rm -rf /var/lib/apt/lists/* &&\
     mkdir -p /ytdl/yt /ytdl/x /data &&\
     pip install --no-cache-dir -r requirements.txt &&\

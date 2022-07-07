@@ -5,3 +5,4 @@ test/
 yt_server.db
 yt_server_save.db
 yt_netrc.txt
+saved_local_settings.py
