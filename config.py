@@ -21,6 +21,7 @@ class Config(object):
 	MAX_DONE = 3000
 	DOWNLOADER = "yt_dlp"
 	PROXY_URL = "https://192.168.1.60:8888"
+	DL_ROOT = None
 
 	def __init__(self):
 		raise RuntimeError('Call instance() instead')

@@ -14,7 +14,8 @@ class Downloader(object):
 	@classmethod
 	def submit_download(cls, form):
 		ytdl_opts = {}
-		dl_dir = os.path.normpath(form.dl_dir.data)
+		dl_root = Config.instance().DL_ROOT
+		dl_dir = os.path.normpath(os.path.join(dl_root, form.dl_dir.data))
 		dl_patt = form.dl_patt.data
 		cookies_file = form.cookies_file.data
 		ytdl_opts['outtmpl'] = os.path.join(dl_dir, dl_patt)
