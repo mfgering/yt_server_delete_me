@@ -4,6 +4,6 @@ git submodule add https://github.com/ytdl-org/youtube-dl.git youtube_dl
 
 gunicorn --bind 0.0.0.0:8220 --threads 4 --chdir /yt-server app:app
 
-docker run -it -p 8220:8220 --rm --entrypoint bash ytserver
+docker run -it -p 8220:8220 --rm --entrypoint bash mgering/ytserver
 
-docker run -it -p 8220:8220 --rm -v "$(pwd)"/test/data:/data -v "$(pwd)"/test/x:/ytdl/x -v "$(pwd)"/test/yt:/ytdl/yt --entrypoint bash ytserver
+docker run -it -p 8220:8220 --rm -v "$(pwd)"/test/data:/data -v "$(pwd)"/test/x:/ytdl/x -v "$(pwd)"/test/yt:/ytdl/yt --entrypoint bash mgering/ytserver
