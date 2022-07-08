@@ -25,7 +25,7 @@ def download():
 							dl_patt=session.get('dl_patt', config.Config.instance().DEFAULT_DOWNLOAD_NAME_PATTERN),
 							x_audio=session.get('x_audio', False),
 							max_dl=session.get('max_dl', config.Config.instance().MAX_CONCURRENT_DL),
-							use_proxy=session.get('use_proxy', True),
+							use_proxy=session.get('use_proxy', False),
 							cookies_file=session.get('cookies_file'))
 	else:
 		form = DownloadForm(request.form)

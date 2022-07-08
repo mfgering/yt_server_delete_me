@@ -13,11 +13,12 @@ class Downloader(object):
 
 	@classmethod
 	def submit_download(cls, form):
-		ytdl_opts = {}
 		dl_root = Config.instance().DL_ROOT
+		assert dl_root is not None, "DL_ROOT is not set!"
 		dl_dir = os.path.normpath(os.path.join(dl_root, form.dl_dir.data))
 		dl_patt = form.dl_patt.data
 		cookies_file = form.cookies_file.data
+		ytdl_opts = {}
 		ytdl_opts['outtmpl'] = os.path.join(dl_dir, dl_patt)
 		ytdl_opts['ffmpeg_location'] = Config.instance().FFMPEG_LOCATION
 		ytdl_opts['restrictfilenames'] = Config.instance().RESTRICT_FILENAMES
