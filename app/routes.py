@@ -1,7 +1,7 @@
 import os
+import signal
 import app
 import datetime
-import psutil
 import sys
 import jinja2.utils
 import jinja2.filters
@@ -127,15 +127,7 @@ def do_proc(cmd):
 	return (out_str, err_str)
 
 def restart_server():
-	for proc in psutil.process_iter():
-		try:
-			print(" ".join(proc.cmdline()))
-			for parm in proc.cmdline():
-				if "gunicorn" in parm:
-					proc.kill()
-					break
-		except Exception:
-			pass
+	os.kill(1, signal.SIGHUP)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
