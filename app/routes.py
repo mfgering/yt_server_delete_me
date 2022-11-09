@@ -1,4 +1,5 @@
 import os
+import logging
 import signal
 import app
 import datetime
@@ -177,6 +178,8 @@ def get_log_stg(rowid):
 @app.route('/get-db', methods=['GET'])
 def get_db():
 	try:
+		logging.error("***************************************")
+		logging.error(str(send_file.__module__))
 		return send_file(config.Config.instance().DB_LOCATION, attachment_filename='yt_server.db')
 	except Exception as e:
 		return str(e)
