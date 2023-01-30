@@ -4,9 +4,8 @@ from io import StringIO
 import logging
 from threading import Thread
 import db_stg
-# NOTE: The PYTHONPATH should be adjusted so the following imports succeed
-import youtube_dl.YoutubeDL
-import yt_dlp.youtube_dl.YoutubeDL
+import youtube_dl_downloader
+import yt_dlp_downloader
 
 class Downloader(object):
     Running = []
@@ -104,9 +103,9 @@ class DownloadThread(Thread):
         opts['logger'] = self.logger
         self.dump_dl_opts(opts)
         if Config.instance().DOWNLOADER == 'youtube_dl':
-            ytdl = youtube_dl.YoutubeDL(opts)
+            ytdl = youtube_dl_downloader.youtube_dl.YoutubeDL(opts)
         else:
-            ytdl = yt_dlp.youtube_dl.YoutubeDL(opts)
+            ytdl = yt_dlp_downloader.youtube_dl.YoutubeDL(opts)
         try:
             info = ytdl.extract_info(url, download=False)
             if 'title' in info:

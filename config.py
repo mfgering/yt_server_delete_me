@@ -22,7 +22,7 @@ class Config(object):
     DOWNLOADER = "yt_dlp"
     PROXY_URL = "https://192.168.1.60:8888"
     DL_ROOT = None
-    DB_LOCATION = '../yt_server.db'
+    DB_LOCATION = './yt_server.db'
 
     def __init__(self):
         raise RuntimeError('Call instance() instead')

@@ -5,8 +5,8 @@ import datetime
 import sys
 import jinja2.utils
 import jinja2.filters
-import youtube_dl
-import yt_dlp
+import youtube_dl_downloader.youtube_dl
+import yt_dlp_downloader.youtube_dl
 from wtforms import IntegerField, StringField, PasswordField, BooleanField, SubmitField
 from flask import render_template, flash, redirect, request, send_file, session
 import config, downloader
@@ -76,9 +76,9 @@ def settings():
 	if len(form.errors) > 0:
 		flash("Please fix the problems and try again.")
 	if cfg.DOWNLOADER == 'youtube_dl':
-		yt_version = youtube_dl.version.__version__ +" (youtube_dl)"
+		yt_version = youtube_dl_downloader.youtube_dl.version.__version__ +" (youtube_dl)"
 	else:
-		yt_version = yt_dlp.version.__version__ + " (yt_dlp)"
+		yt_version = yt_dlp_downloader.youtube_dl.version.__version__ + " (yt_dlp)"
 	return render_template('settings.html', title='Settings', form=form, uptime=uptime_str,
 		yt_version=yt_version)
 
