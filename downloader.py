@@ -6,7 +6,7 @@ from threading import Thread
 import db_stg
 # NOTE: The PYTHONPATH should be adjusted so the following imports succeed
 import youtube_dl.YoutubeDL
-import yt_dlp.YoutubeDL
+import yt_dlp.youtube_dl.YoutubeDL
 
 class Downloader(object):
     Running = []
@@ -106,7 +106,7 @@ class DownloadThread(Thread):
         if Config.instance().DOWNLOADER == 'youtube_dl':
             ytdl = youtube_dl.YoutubeDL(opts)
         else:
-            ytdl = yt_dlp.YoutubeDL(opts)
+            ytdl = yt_dlp.youtube_dl.YoutubeDL(opts)
         try:
             info = ytdl.extract_info(url, download=False)
             if 'title' in info:
